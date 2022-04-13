@@ -46,6 +46,7 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
+  z-index: 30;
 }
 
 .burger_btn span, .burger_btn span::before, .burger_btn span::after {
@@ -69,7 +70,7 @@
 }
 
 #burger_menu {
-  opacity: 0;
+  display: none;
 }
 
 #burger_menu:checked ~ .burger_btn > span {
@@ -77,9 +78,21 @@
           transform: rotate(90deg);
 }
 
-#burger_menu:checked ~ .menubox {
-  visibility: visible;
-  left: 0;
+.body_blackout {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  right: -100%;
+  top: 0px;
+  background: rgba(41, 41, 41, 0.6);
+  overflow: hidden;
+  display: none;
+}
+
+.overflow_hidden {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
 }
 
 .container {
@@ -199,6 +212,8 @@ button:hover {
 
 .header_logo {
   text-align: center;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
 
 .logo_title {
@@ -757,12 +772,60 @@ footer {
     text-align: center;
   }
   .header_menu {
-    display: none;
+    visibility: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 32rem;
+    background: #292929;
+    top: 0;
+    right: -100%;
+    z-index: 2;
+    -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+    -ms-touch-action: none;
+        touch-action: none;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+  }
+  .header_menu .header_menu_list {
+    margin-top: 249px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100vw;
+    height: 32.7rem;
+  }
+  .header_menu .header_menu_list a {
+    font-size: 3.2rem;
+    line-height: 5.1rem;
   }
   .burger_btn {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  #burger_menu:checked ~ .header_menu {
+    visibility: visible;
+    right: 0;
+  }
+  #burger_menu:checked ~ .header_logo {
+    position: fixed;
+    top: 3.1rem;
+    right: 12.4rem;
+    z-index: 3;
+  }
+  #burger_menu:checked ~ .body_blackout {
+    right: 0px;
+    display: block;
+    overflow: hidden;
+  }
+  .active_link {
+    padding-bottom: 0.8rem;
   }
   .about_screen {
     padding-top: 4.2rem;
