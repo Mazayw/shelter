@@ -7,6 +7,7 @@
     width: 30px
     height: 30px
     cursor: pointer
+    z-index: 30
     span, span::before, span::after
         display: block
         position: absolute
@@ -22,26 +23,22 @@
         top: 10px
 
 #burger_menu
-    opacity: 0
+    display: none
 
 #burger_menu:checked ~ .burger_btn > span
     transform: rotate(90deg)
 
-#burger_menu:checked ~ .menubox //!!!
-    visibility: visible
-    left: 0
+.body_blackout
+    position: fixed
+    width: 100vw
+    height: 100vh
+    right: -100%
+    top: 0px
+    background: rgba(41, 41, 41, 0.6)
+    overflow: hidden
+    display: none
 
-//menubox
- //display: block;
- //position: fixed;
- //visibility: hidden;
- //top: 0;
- //left: -100%;
- //width: 300px;
- //height: 100%;
- //margin: 0;
- //padding: 80px 0;
- //list-style: none;
- //background-color: #ECEFF1;
- //box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
- //transition-duration: .25s;
+.overflow_hidden
+    overflow: hidden
+    position: fixed
+    top: 0
