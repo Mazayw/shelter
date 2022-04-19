@@ -455,7 +455,7 @@ footer {
   margin-left: 4rem;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1279px) {
   .header {
     padding-top: 3rem;
   }
