@@ -43,6 +43,7 @@ $color-light-xl: #ffffff
     padding: 0
 
 @import "../../assets/Sass/_burger"
+@import "../../assets/Sass/_slider"
 
 .container
     display: flex
@@ -257,10 +258,21 @@ button:hover
     align-items: center
 
 .pets_slider_inner
+    position: relative
     display: flex
     justify-content: center
     column-gap: 9rem
     width: 100%
+
+.slider_container
+    overflow: hidden
+    width: 100%
+    margin: 0 53px
+
+.pets_slider_wrapper
+    display: flex
+    position: relative
+    left: -100%
 
 .slider_card
     width: 27rem
