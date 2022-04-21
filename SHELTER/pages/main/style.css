@@ -1,3 +1,15 @@
+#slider_active {
+  background-color: green;
+}
+
+#slider_left {
+  background-color: black;
+}
+
+#slider_right {
+  background-color: blue;
+}
+
 @font-face {
   font-family: 'Arial';
   src: url("../../assets/fonts/Arial.woff") format("woff");
@@ -120,8 +132,8 @@
 .transition_right {
   -webkit-animation-name: move_right;
           animation-name: move_right;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 @-webkit-keyframes move_left {
@@ -145,8 +157,8 @@
 .transition_left {
   -webkit-animation-name: move_left;
           animation-name: move_left;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
 }
 
 .container {
@@ -742,11 +754,14 @@ footer {
     margin: 0;
     margin: 8rem 0 0 0;
   }
+  .slider_container {
+    margin: 0 12px;
+  }
   .pets_slider_inner {
     -webkit-column-gap: 4rem;
             column-gap: 4rem;
   }
-  .slider_card:last-child {
+  .slider_card:nth-child(3) {
     display: none;
   }
   .help_list {
@@ -937,7 +952,7 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .pets_slider_inner {
+  .pets_slider_inner, .slider_container {
     -webkit-column-gap: 4rem;
             column-gap: 4rem;
     -webkit-box-ordinal-group: 0;

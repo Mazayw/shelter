@@ -12,6 +12,15 @@ $color-light-s: #FAFAFA
 $color-light-l: #F6F6F6
 $color-light-xl: #ffffff
 
+#slider_active
+    background-color: green
+
+#slider_left
+    background-color: black
+
+#slider_right
+    background-color: blue
+
 @font-face
     font-family: 'Arial'
     src: url('../../assets/fonts/Arial.woff') format('woff')
@@ -449,10 +458,13 @@ footer
             margin: 0
             margin: 8rem 0 0 0
 
+    .slider_container
+        margin: 0 12px
+
     .pets_slider_inner
         column-gap: 4rem
 
-    .slider_card:last-child
+    .slider_card:nth-child(3)
         display: none
 
     .help_list
@@ -605,7 +617,7 @@ footer
         flex-wrap: wrap
         justify-content: center
 
-    .pets_slider_inner
+    .pets_slider_inner, .slider_container
         column-gap: 4rem
         order: -1
 

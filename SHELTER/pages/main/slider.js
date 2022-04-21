@@ -1,11 +1,35 @@
 const LEFT_ARROW = document.querySelector('.left_arrow');
 const RIGHT_ARROW = document.querySelector('.right_arrow');
 const SLIDER = document.querySelector('.pets_slider_wrapper');
-const LEFT_ITEMS = document.querySelector('#slider_left');
-const RIGHT_ITEMS = document.querySelector('#slider_right');
+let LEFT_ITEMS = document.querySelector('#slider_left');
+let RIGHT_ITEMS = document.querySelector('#slider_right');
 let active_items = document.querySelector('#slider_active');
+let numberOfSlides = 3;
 
+//Active Pets Names
+const activePetsNames = () => {
+    let pets = [];
+    const active = document.querySelectorAll("#slider_active > div > h4");
+    for (i = 0; i < active.length; i++) {
+        pets.push(active[i].innerHTML);
+    };
+    return pets;
+};
 
+//Filter cards pets for duplicates
+const filterCards = (jsonPets, activePets) => {
+    let result = jsonPets.filter(element => !activePets.includes(element.name));
+    //console.log(result);
+    return result;
+};
+
+//Number of slides
+if (frameWidth < 1280 && frameWidth >= 768) {
+    numberOfSlides = 2;
+} else if (frameWidth < 768) {
+    numberOfSlides = 1;
+};
+console.log(numberOfSlides);
 
 // Card generator
 const CREATE_CARD = (img_src, name, id) => {
@@ -43,16 +67,20 @@ const SLIDE_RIGHT = () => {
 LEFT_ARROW.addEventListener('click', SLIDE_LEFT);
 RIGHT_ARROW.addEventListener('click', SLIDE_RIGHT);
 
+//Slider generator
 function createSlider(arrayData, htmlSlider) {
+    const petsNamesActive = activePetsNames();
+    arrayData = filterCards(arrayData, petsNamesActive);
+    console.log(arrayData);
+    htmlSlider.innerHTML = '';
     arrayData.sort((a, b) => Math.random() - 0.5);
-    //for (let i = 0; i < arrayData.length; i++) {
-    for (let i = 0; i < 3; i++) {
-        const card = CREATE_CARD(arrayData[i].img, arrayData[i].name, i);
+    for (let i = 0; i < numberOfSlides; i++) {
+        const card = CREATE_CARD(arrayData[i].img, arrayData[i].name, arrayData[i].id);
         htmlSlider.appendChild(card);
     }
     return htmlSlider;
 }
-
+//Slider worker
 SLIDER.addEventListener('animationend', (animationEvent) => {
     let changedItem;
     if (animationEvent.animationName === 'move_left') {
@@ -64,16 +92,20 @@ SLIDER.addEventListener('animationend', (animationEvent) => {
         SLIDER.classList.remove('transition_right');
         changedItem = RIGHT_ITEMS;
     }
-    changedItem.innerHTML = '';
     changedItem = createSlider(JSON_DATA, changedItem);
-
     LEFT_ARROW.addEventListener('click', SLIDE_LEFT);
     RIGHT_ARROW.addEventListener('click', SLIDE_RIGHT);
 });
 
+//Create slider elements
+setTimeout(() => {
+    active_items = createSlider(JSON_DATA, active_items);
+    LEFT_ITEMS = createSlider(JSON_DATA, LEFT_ITEMS);
+    RIGHT_ITEMS = createSlider(JSON_DATA, RIGHT_ITEMS);
+}, 300);
 
 
 //event.target.closest('.класс карточки')
 
 
-//document.querySelectorAll("#slider_active > div > h4") - active card list
+
