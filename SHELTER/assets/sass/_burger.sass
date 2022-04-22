@@ -7,7 +7,7 @@
     width: 30px
     height: 30px
     cursor: pointer
-    z-index: 30
+    z-index: 1
     span, span::before, span::after
         display: block
         position: absolute
@@ -28,6 +28,12 @@
 #burger_menu:checked ~ .burger_btn > span
     transform: rotate(90deg)
 
+#burger_menu:checked ~ .burger_btn
+    z-index: 3
+
+#burger_menu:checked ~ .header_menu
+    overflow: auto
+
 .body_blackout
     position: fixed
     width: 100vw
@@ -37,8 +43,12 @@
     background: rgba(41, 41, 41, 0.6)
     overflow: hidden
     display: none
+    z-index: 1
+    cursor: pointer
 
 .overflow_hidden
     overflow: hidden
-    position: fixed
     top: 0
+
+.hidden
+    display: none

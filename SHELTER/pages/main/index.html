@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="../../assets/icons/dog_icon.svg" type="image/x-icon">
     <title>Cozy House</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="../../assets/js/global.js"></script>
+    <script src="../../assets/js/readjson.js"></script>
 </head>
 
 <body>
@@ -26,16 +28,19 @@
             <nav class="header_menu">
                 <ul class="header_menu_list">
                     <li>
-                        <a href="#" class="header_menu_element active_link">About the shelter</a>
+                        <a href="#" class="header_menu_element active_link" onclick="closeBurger()">About
+                            the shelter</a>
                     </li>
                     <li>
-                        <a href="../pets/index.html" class="header_menu_element">Our pets</a>
+                        <a href="../pets/index.html" class="header_menu_element"
+                            onclick="burgerCheck.checked = false">Our pets</a>
                     </li>
                     <li>
-                        <a href="#help" class="header_menu_element">Help the shelter</a>
+                        <a href="#help" class="header_menu_element" onclick="closeBurger()">Help the
+                            shelter</a>
                     </li>
                     <li>
-                        <a href="#contacts" class="header_menu_element">Contacts</a>
+                        <a href="#contacts" class="header_menu_element" onclick="closeBurger()">Contacts</a>
                     </li>
                 </ul>
             </nav>
@@ -91,24 +96,77 @@
                         <button class="left_arrow slide_arrow">
                             <img src="../../assets/icons/Arrow.svg" alt="Left arrow" />
                         </button>
-                        <div class="pets_slider_inner">
-                            <div class="slider_card">
-                                <img src="../../assets/images/pets-katrine.png" alt="Pet Katrine" />
-                                <h4 class="pet_name">Katrine</h4>
-                                <button onclick="document.location='https://'" class="button button_secondary">Learn
-                                    more</button>
-                            </div>
-                            <div class="slider_card">
-                                <img src="../../assets/images/pets-jennifer.png" alt="Pet Jennifer" />
-                                <h4 class="pet_name">Jennifer</h4>
-                                <button onclick="document.location='https://'" class="button button_secondary">Learn
-                                    more</button>
-                            </div>
-                            <div class="slider_card">
-                                <img src="../../assets/images/pets-woody.png" alt="Pet Woody" />
-                                <h4 class="pet_name">Woody</h4>
-                                <button onclick="document.location='https://'" class="button button_secondary">Learn
-                                    more</button>
+                        <div class="slider_container">
+                            <div class="pets_slider_wrapper">
+                                <div class="pets_slider_inner" id="slider_left">
+                                    <div class="slider_card">
+                                        <img src=" ../../assets/images/katrine.png" alt="Pet Katrine" />
+                                        <h4 class="pet_name">Katrine1</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/jennifer.png" alt="Pet Jennifer" />
+                                        <h4 class="pet_name">Jennifer1</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/woody.png" alt="Pet Woody" />
+                                        <h4 class="pet_name">Woody1</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                </div>
+                                <div class="pets_slider_inner" id="slider_active">
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/katrine.png" alt="Pet Katrine" />
+                                        <h4 class="pet_name">Katrine</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/jennifer.png" alt="Pet Jennifer" />
+                                        <h4 class="pet_name">Jennifer</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/woody.png" alt="Pet Woody" />
+                                        <h4 class="pet_name">Woody</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                </div>
+                                <div class="pets_slider_inner" id="slider_right">
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/katrine.png" alt="Pet Katrine" />
+                                        <h4 class="pet_name">Katrine3</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/jennifer.png" alt="Pet Jennifer" />
+                                        <h4 class="pet_name">Jennifer3</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                    <div class="slider_card">
+                                        <img src="../../assets/images/woody.png" alt="Pet Woody" />
+                                        <h4 class="pet_name">Woody3</h4>
+                                        <button onclick="document.location='https://'"
+                                            class="button button_secondary">Learn
+                                            more</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <button class="right_arrow slide_arrow">
@@ -116,7 +174,8 @@
                         </button>
                     </div>
                     <button onclick="document.location='../pets/index.html'"
-                        class="button button_primary pets_button">Get to know the
+                        class="button button_primary pets_button">Get
+                        to know the
                         rest</button>
                 </div>
             </div>
@@ -232,7 +291,10 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="../../assets/js/burger.js"></script>
+    <script src="../../assets/js/slider.js"></script>
+    <script src="../../assets/js/modal.js"></script>
 </body>
 
 </html>

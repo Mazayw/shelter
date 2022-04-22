@@ -1,48 +1,7 @@
-$color-primary: #F1CDB3
-$color-primary-light: #FDDCC4
-
-$color-dark-s: #CDCDCD
-$color-dark-m: #B2B2B2
-$color-dark-l: #545454
-$color-dark-xl: #4C4C4C
-$color-dark-2xl: #444444
-$color-dark-3xl: #292929
-
-$color-light-s: #FAFAFA
-$color-light-l: #F6F6F6
-$color-light-xl: #ffffff
-
-@font-face
-    font-family: 'Arial'
-    src: url('../../assets/fonts/Arial.woff') format('woff')
-    font-weight: 400
-
-@font-face
-    font-family: 'Arial'
-    src: url('../../assets/fonts/Arial_Italic.woff') format('woff')
-    font-weight: normal
-    font-style: italic
-
-@font-face
-    font-family: 'Georgia'
-    src: url('../../assets/fonts/Georgia.woff') format('woff')
-    font-weight: 400
-
-@font-face
-    font-family: 'Georgia'
-    src: url('../../assets/fonts/Georgia_italic.woff') format('woff')
-    font-weight: normal
-    font-style: italic
-
-\:root
-    font-size: 10px
-
-*
-    box-sizing: border-box
-    margin: 0
-    padding: 0
-
-@import "../../assets/Sass/_burger"
+@import "../../assets/sass/_globals"
+@import "../../assets/sass/_burger"
+@import "../../assets/sass/_slider"
+@import "../../assets/sass/_modal"
 
 .container
     display: flex
@@ -251,16 +210,26 @@ button:hover
 
 .pets_slider
     display: flex
-    margin-top: 6rem
+    margin-top: 5rem
     justify-content: space-between
     width: 100%
     align-items: center
 
 .pets_slider_inner
+    position: relative
     display: flex
     justify-content: center
     column-gap: 9rem
-    width: 100%
+    margin: 0 1rem
+
+.slider_container
+    overflow: hidden
+    width: 101rem
+
+.pets_slider_wrapper
+    display: flex
+    position: relative
+    left: -100%
 
 .slider_card
     width: 27rem
@@ -272,6 +241,7 @@ button:hover
     align-items: center
     transition: 0.2s
     cursor: pointer
+    margin: 1rem 0
     h4
         margin-top: 3rem
     button
@@ -284,7 +254,7 @@ button:hover
         background-color: $color-primary-light
         border-color: $color-primary-light
 
-.left_arrow, .right_arrow
+.left_arrow, .right_arrow, .close_buton
     width: 5.2rem
     height: 5.2rem
     border: 2px solid $color-primary
@@ -296,12 +266,12 @@ button:hover
 .right_arrow
     transform: scaleX(-1)
 
-.left_arrow:hover, .right_arrow:hover
+.left_arrow:hover, .right_arrow:hover, .close_buton:hover
     background-color: $color-primary-light
     border-color: $color-primary-light
 
 .pets_button
-    margin-top: 6rem
+    margin-top: 5rem
 
 .pets_help
     padding-top: 8rem
@@ -440,7 +410,10 @@ footer
     .pets_slider_inner
         column-gap: 4rem
 
-    .slider_card:last-child
+    .slider_container
+        width: 60rem
+
+    .slider_card:nth-child(3)
         display: none
 
     .help_list
@@ -589,16 +562,20 @@ footer
         display: none
 
     .pets_slider
-        margin-top: 4.5rem
+        margin-top: 3.5rem
         flex-wrap: wrap
+        width: 31rem
         justify-content: center
 
-    .pets_slider_inner
+    .pets_slider_inner, .slider_container
         column-gap: 4rem
         order: -1
 
+    .slider_container
+        width: 29rem
+
     .slide_arrow
-        margin: 2rem 4rem 0
+        margin: 1rem 4rem 0
 
     .pets_button
         margin-top: 4rem
