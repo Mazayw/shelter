@@ -19,7 +19,6 @@ const activePetsNames = () => {
 //Filter cards pets for duplicates
 const filterCards = (jsonPets, activePets) => {
     let result = jsonPets.filter(element => !activePets.includes(element.name));
-    //console.log(result);
     return result;
 };
 
@@ -29,7 +28,7 @@ if (frameWidth < 1280 && frameWidth >= 768) {
 } else if (frameWidth < 768) {
     numberOfSlides = 1;
 };
-console.log(numberOfSlides);
+console.log(`Number of slides: ${numberOfSlides}`);
 
 // Card generator
 const CREATE_CARD = (img_src, name, id) => {
@@ -41,13 +40,13 @@ const CREATE_CARD = (img_src, name, id) => {
     sliderCard.appendChild(img);
     const h4 = document.createElement('h4');
     h4.classList.add('pet_name');
-    h4.innerHTML = name;
+    h4.innerText = name;
     sliderCard.appendChild(h4);
     const button = document.createElement('button');
     button.classList.add('button');
     button.classList.add('button_secondary');
-    button.innerHTML = 'Learn more';
-    button.setAttribute('id', id);
+    button.innerText = 'Learn more';
+    // button.setAttribute('id', id);
     sliderCard.appendChild(button);
     return sliderCard;
 };
@@ -71,6 +70,7 @@ RIGHT_ARROW.addEventListener('click', SLIDE_RIGHT);
 function createSlider(arrayData, htmlSlider) {
     const petsNamesActive = activePetsNames();
     arrayData = filterCards(arrayData, petsNamesActive);
+    console.log(`Array generated:`);
     console.log(arrayData);
     htmlSlider.innerHTML = '';
     arrayData.sort((a, b) => Math.random() - 0.5);
@@ -99,13 +99,10 @@ SLIDER.addEventListener('animationend', (animationEvent) => {
 
 //Create slider elements
 setTimeout(() => {
-    active_items = createSlider(JSON_DATA, active_items);
     LEFT_ITEMS = createSlider(JSON_DATA, LEFT_ITEMS);
     RIGHT_ITEMS = createSlider(JSON_DATA, RIGHT_ITEMS);
 }, 300);
 
-
-//event.target.closest('.класс карточки')
 
 
 

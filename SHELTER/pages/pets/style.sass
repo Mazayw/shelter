@@ -1,36 +1,7 @@
-$color-primary: #F1CDB3
-$color-primary-light: #FDDCC4
-
-$color-dark-s: #CDCDCD
-$color-dark-m: #B2B2B2
-$color-dark-l: #545454
-$color-dark-xl: #4C4C4C
-$color-dark-2xl: #444444
-$color-dark-3xl: #292929
-
-$color-light-s: #FAFAFA
-$color-light-l: #F6F6F6
-$color-light-xl: #ffffff
-
-@font-face
-    font-family: 'Arial'
-    src: url('../../assets/fonts/Arial.woff')
-    font-weight: 400
-
-@font-face
-    font-family: 'Georgia'
-    src: url('../../assets/fonts/Georgia.woff')
-    font-weight: 400
-
-\:root
-    font-size: 10px
-
-*
-    box-sizing: border-box
-    margin: 0
-    padding: 0
-
-@import "../../assets/Sass/_burger"
+@import "../../assets/sass/_globals"
+@import "../../assets/sass/_burger"
+@import "../../assets/sass/_slider"
+@import "../../assets/sass/_modal"
 
 .container
     display: flex
@@ -234,7 +205,7 @@ button:hover
     width: 34rem
     justify-content: space-between
 
-.pagination_button
+.pagination_button, .close_buton
     width: 5.2rem
     height: 5.2rem
     border: 2px solid $color-primary

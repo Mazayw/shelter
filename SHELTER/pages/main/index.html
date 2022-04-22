@@ -28,16 +28,19 @@
             <nav class="header_menu">
                 <ul class="header_menu_list">
                     <li>
-                        <a href="#" class="header_menu_element active_link">About the shelter</a>
+                        <a href="#" class="header_menu_element active_link" onclick="closeBurger()">About
+                            the shelter</a>
                     </li>
                     <li>
-                        <a href="../pets/index.html" class="header_menu_element">Our pets</a>
+                        <a href="../pets/index.html" class="header_menu_element"
+                            onclick="burgerCheck.checked = false">Our pets</a>
                     </li>
                     <li>
-                        <a href="#help" class="header_menu_element">Help the shelter</a>
+                        <a href="#help" class="header_menu_element" onclick="closeBurger()">Help the
+                            shelter</a>
                     </li>
                     <li>
-                        <a href="#contacts" class="header_menu_element">Contacts</a>
+                        <a href="#contacts" class="header_menu_element" onclick="closeBurger()">Contacts</a>
                     </li>
                 </ul>
             </nav>
@@ -288,8 +291,10 @@
             </div>
         </div>
     </footer>
-    <script src="burger.js"></script>
-    <script src="slider.js"></script>
+
+    <script src="../../assets/js/burger.js"></script>
+    <script src="../../assets/js/slider.js"></script>
+    <script src="../../assets/js/modal.js"></script>
 </body>
 
 </html>
