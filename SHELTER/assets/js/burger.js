@@ -18,5 +18,5 @@ function closeBurger() {
 document.body.addEventListener('click', (event) => {
     if (event.target.closest('.body_blackout')) {
         closeBurger();
-    };
+    }
 });

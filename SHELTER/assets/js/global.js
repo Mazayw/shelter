@@ -7,8 +7,8 @@ function debugInfo(text, data) {
     if (debug) {
         console.log(text);
         console.log(data);
-    };
-};
+    }
+}
 
 
 

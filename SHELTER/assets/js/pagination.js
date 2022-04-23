@@ -28,27 +28,23 @@ function updatePagination() {
     if (currentPage > 1) {
         BUTTON_FAST_BACKWARD.removeAttribute('disabled');
         BUTTON_BACKWARD.removeAttribute('disabled');
-    };
+    }
 
     if (currentPage === 1) {
         BUTTON_FAST_BACKWARD.setAttribute('disabled', '');
         BUTTON_BACKWARD.setAttribute('disabled', '');
-    };
+    }
 
     if (currentPage === numberOfPages) {
         BUTTON_FAST_FORWARD.setAttribute('disabled', '');
         BUTTON_FORWARD.setAttribute('disabled', '');
-    };
+    }
 
     if (currentPage < numberOfPages) {
         BUTTON_FAST_FORWARD.removeAttribute('disabled');
         BUTTON_FORWARD.removeAttribute('disabled');
-    };
-};
-
-
-
-
+    }
+}
 
 //Pagination buttons listener
 BUTTON_BACKWARD.addEventListener('click', () => {
@@ -80,21 +76,17 @@ BUTTON_FAST_FORWARD.addEventListener('click', () => {
     createSlider(petsShow(PETS_DATA), PETS_SLIDER_CONTAINER);
 });
 
-
-
-
-
 //Calculating number of slides
 function numberSlidersChecker() {
     if (frameWidth < 1280 && frameWidth >= 768) {
         numberOfSlides = 6;
     } else if (frameWidth < 768) {
         numberOfSlides = 3;
-    };
+    }
     numberOfPages = numberOfAllSlides / numberOfSlides;
     debugInfo('Number of pages:', numberOfPages);
     debugInfo('Number of slides:', numberOfSlides);
-};
+}
 numberSlidersChecker();
 
 // Card generator
@@ -122,10 +114,10 @@ function petsShow(arrayData) {
     const start = currentPage * numberOfSlides - numberOfSlides;
     const end = currentPage * numberOfSlides;
     return arrayData.slice(start, end);
-};
+}
 
 //Randomizer of all pets
-function petsGenerator(arrayData) {
+function petsGenerator2(arrayData) {
     const ARRAY_OF_PETS = [];
     let prev = arrayData;
     let current;
@@ -135,12 +127,26 @@ function petsGenerator(arrayData) {
         } while (prev == current);
         ARRAY_OF_PETS.push(current);
         prev = current;
-    };
-    return ARRAY_OF_PETS.flat();
+    }
     debugInfo('All pets: ', ARRAY_OF_PETS);
-};
+    return ARRAY_OF_PETS.flat();
+}
 
-
+//Randomizer of all pets v2.0
+function petsGenerator(arrayData) {
+    const ARRAY_OF_PETS = [];
+    let prev = arrayData;
+    let current;
+    const part1 = arrayData.slice(0, 3);
+    const part2 = arrayData.slice(3, 6);
+    const part3 = arrayData.slice(6);
+    for (let i = 0; i < 6; i++) {
+        ARRAY_OF_PETS.push(part1.slice().sort((a, b) => Math.random() - 0.5));
+        ARRAY_OF_PETS.push(part2.slice().sort((a, b) => Math.random() - 0.5));
+        ARRAY_OF_PETS.push(part3.slice().sort((a, b) => Math.random() - 0.5));
+    }
+    return ARRAY_OF_PETS.flat();
+}
 
 //Slider generator
 function createSlider(arrayData, htmlSlider) {
@@ -150,4 +156,4 @@ function createSlider(arrayData, htmlSlider) {
         htmlSlider.appendChild(card);
     }
     return htmlSlider;
-};
+}

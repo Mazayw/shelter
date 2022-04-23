@@ -43,7 +43,6 @@ const CREATE_MODAL_WINDOW = (objPet) => {
 //Modal window worker
 document.body.addEventListener('click', (event) => {
     let clickedCardName, petObjData;
-    petObjData
     if (event.target.closest('.slider_card')) {
         clickedCardName = event.target.closest('.slider_card').querySelector('.pet_name').innerText;
         petObjData = JSON_DATA.find(obj => obj.name === clickedCardName);

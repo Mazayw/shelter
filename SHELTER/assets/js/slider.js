@@ -12,7 +12,7 @@ const activePetsNames = () => {
     const active = document.querySelectorAll("#slider_active > div > h4");
     for (i = 0; i < active.length; i++) {
         pets.push(active[i].innerHTML);
-    };
+    }
     return pets;
 };
 
@@ -27,8 +27,8 @@ if (frameWidth < 1280 && frameWidth >= 768) {
     numberOfSlides = 2;
 } else if (frameWidth < 768) {
     numberOfSlides = 1;
-};
-debugInfo("Number of slides:", numberOfSlides)
+}
+debugInfo("Number of slides:", numberOfSlides);
 
 // Card generator
 const CREATE_CARD = (img_src, name) => {
