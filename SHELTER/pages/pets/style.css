@@ -344,6 +344,55 @@
   }
 }
 
+@-webkit-keyframes modal_animation {
+  from {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  to {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes modal_animation {
+  from {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  to {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes rotate_animation {
+  from {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  to {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotate_animation {
+  from {
+    -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+  }
+  to {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+.slider_card {
+  -webkit-animation: rotate_animation 0.2s ease-out;
+          animation: rotate_animation 0.2s ease-out;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;

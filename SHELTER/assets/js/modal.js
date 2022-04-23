@@ -7,7 +7,6 @@ const closeModalWindow = () => {
     if (MODAL_WINDOW) {
         MODAL_WINDOW.remove();
         body.classList.toggle("overflow_hidden");
-        BODY_BLACKOUT.removeAttribute("style");
     }
 };
 
@@ -18,7 +17,7 @@ const CREATE_MODAL_WINDOW = (objPet) => {
     modalWindow.classList.add('modal_window_block');
     const modalHtml =
         `   <div class="body_blackout_modal" onclick="closeModalWindow()"></div>
-        <div class="modal_window">
+        <div class="modal_window" style="animation - delay=250; animation - type=fadeIn">
         <button class="close_buton" onclick="closeModalWindow()" >
                 <img class="modal_close" src="../../assets/icons/close.svg" alt="Modal window close button">
             </button>
@@ -50,13 +49,9 @@ document.body.addEventListener('click', (event) => {
         petObjData = JSON_DATA.find(obj => obj.name === clickedCardName);
         document.body.appendChild(CREATE_MODAL_WINDOW(petObjData));
         body.classList.toggle("overflow_hidden");
-        BODY_BLACKOUT.setAttribute("style", "right: 0px; display: block; overflow: hidden;");
     } else if (event.target.closest('.close_buton') || event.target.closest('.body_blackout_modal')) {
         closeModalWindow();
     } else return;
-
-
-    console.log(`Clicked card name: ${clickedCardName}`);
-    console.log(`Clicked pets object:`);
-    console.log(petObjData);
+    debugInfo('Clicked card name: ', clickedCardName);
+    debugInfo(`Clicked pets object:`, petObjData);
 });
