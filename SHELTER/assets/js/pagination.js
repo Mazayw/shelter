@@ -11,7 +11,7 @@ const PETS_DATA = [];
 let numberOfPages = numberOfAllSlides / numberOfSlides;
 
 //Generate pets from JSON
-const GENERATE_PETS = () => {
+(function () {
     fetch(JSON_URL)
         .then(res => res.json())
         .then(data => petsGenerator(data))
@@ -20,8 +20,8 @@ const GENERATE_PETS = () => {
             return petsShow(allpets);
         })
         .then(pets => createSlider(pets, PETS_SLIDER_CONTAINER));
-};
-GENERATE_PETS();
+})();
+
 
 //Updater pagination buttons
 function updatePagination() {

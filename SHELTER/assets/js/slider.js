@@ -95,12 +95,16 @@ SLIDER.addEventListener('animationend', (animationEvent) => {
     RIGHT_ARROW.addEventListener('click', SLIDE_RIGHT);
 });
 
-//Create slider elements
-setTimeout(() => {
-    LEFT_ITEMS = createSlider(JSON_DATA, LEFT_ITEMS);
-    RIGHT_ITEMS = createSlider(JSON_DATA, RIGHT_ITEMS);
-}, 300);
-
+//Generate pets after load
+(function () {
+    fetch(JSON_URL)
+        .then(res => res.json())
+        .then(data => {
+            active_items = createSlider(data, active_items);
+            LEFT_ITEMS = createSlider(data, LEFT_ITEMS);
+            RIGHT_ITEMS = createSlider(data, RIGHT_ITEMS);
+        });
+})();
 
 
 
