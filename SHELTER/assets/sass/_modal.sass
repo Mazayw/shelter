@@ -1,0 +1,153 @@
+.modal_window
+    position: fixed
+    width: 90rem
+    left: 50%
+    top: 50%
+    margin: auto
+    transform: translate(-50%, -50%)
+    background: $color-light-s
+    border-radius: 9px
+    display: flex
+    z-index: 5
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2)
+
+.close_buton
+    position: absolute
+    right: -4.2rem
+    top: -5.2rem
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+
+.body_blackout_modal:hover + .modal_window > .close_buton
+    background-color: $color-primary-light
+    border-color: $color-primary-light
+
+.modal_pet_photo
+    width: auto
+    height: 50rem
+    border-radius: 9px
+
+.modal_content
+    width: 35.1rem
+    margin-left: 3rem
+    margin-top: 5rem
+    padding-bottom: 1rem
+    &>*
+        color: $color-black
+        font-family: 'Georgia'
+        font-style: normal
+        font-weight: 400
+        letter-spacing: 0.06em
+
+.modal_subtitle
+    margin-top: 1rem
+
+.modal_description
+    margin-top: 4rem
+    width: 35rem
+
+.modal_list
+    margin-top: 4rem
+    position: relative
+    li::before
+        position: absolute
+        left: 0
+        content: "\2022"
+        color: $color-primary
+        display: inline-block
+        width: 1.4rem
+
+.modal_list_item
+    font-family: 'Georgia'
+    font-style: normal
+    font-weight: 400
+    font-size: 1.5rem
+    line-height: 1.7rem
+    letter-spacing: 0.06em
+    color: $color-black
+    margin-top: 1rem
+    padding-left: 1.4rem
+
+.heading_bold
+    font-weight: 700
+
+.body_blackout_modal
+    position: fixed
+    left: 0
+    top: 0
+    width: 100vw
+    height: 100vh
+    opacity: 100%
+    cursor: pointer
+    z-index: 1
+    background: rgba(41, 41, 41, 0.6)
+    overflow: hidden
+
+@media ( max-width: 1279px )
+    .modal_window
+        width: 63rem
+
+    .modal_pet_photo
+        height: 35rem
+
+    .modal_content
+        width: 26rem
+        margin-left: 1.1rem
+        margin-top: 1rem
+
+    .modal_description
+        margin-top: 2rem
+        width: 26rem
+
+    .modal_list
+        margin-top: 2rem
+
+    .modal_list_item
+        margin-top: 0.5rem
+
+@media ( max-width: 767px )
+    .modal_window
+        width: 24rem
+        padding: 1rem
+
+    .modal_pet_photo
+        display: none
+
+    .modal_content
+        width: 100%
+        margin: 0
+
+    .modal_title
+        color: $color-black
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .modal_name
+        font-size: 3.5rem
+        line-height: 4.5rem
+        color: $color-black
+
+    .modal_subtitle
+        margin-top: 1rem
+        font-size: 2rem
+        color: $color-black
+
+    .modal_description
+        margin-top: 2rem
+        width: 22rem
+        text-align: justify
+        font-size: 1.3rem
+        line-height: 1.4rem
+
+    .modal_list
+        margin-top: 2.4rem
+
+    .modal_list_item
+        margin-top: .5rem
+
+@keyframes modal_animation
+    from { transform: rotateY(90deg);}
+    to { transform: rotateY(0deg);}
